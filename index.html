@@ -7,6 +7,7 @@
   </head>
   <body>
     <button onclick="sendMessage()">Send</button>
+    <input id='cont'></input>
   </body>
 
   <script>
@@ -19,7 +20,7 @@
       var params = {
         username: "good",
         avatar_url: "",
-        content: "@everyone"
+        content: cont.id
       }
 
       request.send(JSON.stringify(params));
