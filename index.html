@@ -6,6 +6,9 @@
     <title>Discord Webhook Spam Program</title>
   </head>
   <body>
+    <input id='name' placeholder="이름">
+    <input id='pfimage' placeholder="프로필이미지(URL)">
+    <input id='urlweb' placeholder="웹후크 URL">
     <textarea id='cont' placeholder="메시지"></textarea>
     <button onclick="sendMessage()">Send</button>
   </body>
@@ -13,13 +16,13 @@
   <script>
     function sendMessage() {
       var request = new XMLHttpRequest();
-      request.open("POST", "https://discord.com/api/webhooks/792746487024582661/rCmimDdBxiblKzc8HdixRNfLtxUS2AXJ_ap-Xm4DW6E5RhDHeDJL8KOoPHJgQZsS7UIh");
+      request.open("POST", urlweb.value);
 
       request.setRequestHeader('Content-type', 'application/json');
 
       var params = {
-        username: "good",
-        avatar_url: "",
+        username: name.value,
+        avatar_url: pfimage.value,
         content: cont.value
       }
 
