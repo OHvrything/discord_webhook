@@ -6,7 +6,7 @@
     <title>Discord Webhook Spam Program</title>
   </head>
   <body>
-    <input id='name' placeholder="이름">
+    <input id='pfname' placeholder="이름">
     <input id='pfimage' placeholder="프로필이미지(URL)">
     <input id='urlweb' placeholder="웹후크 URL">
     <textarea id='cont' placeholder="메시지"></textarea>
@@ -21,7 +21,7 @@
       request.setRequestHeader('Content-type', 'application/json');
 
       var params = {
-        username: name.value,
+        username: pfname.value,
         avatar_url: pfimage.value,
         content: cont.value
       }
