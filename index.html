@@ -68,26 +68,7 @@
     <input id='pfname' placeholder="이름" maxlength="32"><br>  
     <input id='pfimage' placeholder="프로필이미지(URL)"><br>
     <input id='urlweb' placeholder="웹후크 URL"><br>
-<script src="https://cdn.tiny.cloud/1/679rhw2t2jywj21ilxv7muy2e0vjbczv6fjwiqlcmtn858xh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-tinymce.init({
-
-  selector: "#cont",
-
-  plugins: "emoticons autoresize fullscreen autolink searchreplace print wordcount visualchars",
-
-  toolbar: "emoticons fullscreen searchreplace print wordcount visualchars",
-
-  toolbar_location: "bottom",
-
-  menubar: false,
-
-  statusbar: false
-
-});
-
-</script>
-<textarea id='cont' placeholder="메시지 Message" maxlength="2000"></textarea><br>
+<textarea id='cont' placeholder="메시지" maxlength="2000"></textarea><br>
     <button onclick="sendMessage();" id="send" class="big">전송!</button><br>
     <button onclick="english()" id="englishchange" class="big">English</button>
     <button onclick="korean()" id="korchange" style="display: none;" class="big">한국어</button>
@@ -140,6 +121,7 @@ tinymce.init({
         document.getElementById("send").innerHTML = "Send!"
         document.getElementById('englishchange').style='display: none;'
         document.getElementById('korchange').style='display: block;'
+        document.getElementById('cont').placeholder='Message'
         document.getElementById("title").innerHTML = "Dishook! Easy discord webhook!"
     }
 
@@ -150,6 +132,7 @@ tinymce.init({
         document.getElementById("send").innerHTML = "전송!"
       document.getElementById("title").innerHTML = "디스후크! 쉬운 디스코드 웹후크!"
         document.getElementById('korchange').style='display: none;'
+      document.getElementById('cont').placeholder='메시지'
         document.getElementById('englishchange').style='display: block;'
     }
 
