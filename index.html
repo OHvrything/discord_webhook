@@ -68,7 +68,26 @@
     <input id='pfname' placeholder="이름" maxlength="32"><br>  
     <input id='pfimage' placeholder="프로필이미지(URL)"><br>
     <input id='urlweb' placeholder="웹후크 URL"><br>
-    <textarea id='cont' placeholder="메시지" maxlength="2000"></textarea><br>
+    <script src="https://cdn.tiny.cloud/1/qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc/tinymce/5/tinymce.min.js"></script>
+<script>
+tinymce.init({
+
+  selector: "#cont",
+
+  plugins: "emoticons autoresize",
+
+  toolbar: "emoticons",
+
+  toolbar_location: "bottom",
+
+  menubar: false,
+
+  statusbar: false
+
+});
+
+</script>
+<textarea id='cont' placeholder="메시지" maxlength="2000"></textarea><br>
     <button onclick="sendMessage();" id="send" class="big">전송!</button><br>
     <button onclick="english()" id="englishchange" class="big">English</button>
     <button onclick="korean()" id="korchange" style="display: none;" class="big">한국어</button>
