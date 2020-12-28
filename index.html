@@ -32,6 +32,7 @@
     </style>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </head>
   <body>
       <center>
@@ -39,7 +40,7 @@
     <input id='pfimage' placeholder="프로필이미지(URL)"><br>
     <input id='urlweb' placeholder="웹후크 URL"><br>
     <textarea id='cont' placeholder="메시지"></textarea><br>
-    <button onclick="sendMessage()" id="send">전송!</button><br>
+    <button onclick="sendMessage();" id="send">전송!</button><br>
     <button onclick="english()" id="englishchange">English</button>
     <button onclick="korean()" id="korchange" style="display: none;">한국어</button>
     </center>
@@ -59,6 +60,15 @@
       }
 
       request.send(JSON.stringify(params));
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '전송 성공!',
+        text: '전송이 성공적으로 완료되었어요! The send has been completed successfully!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
 
     function english() {
