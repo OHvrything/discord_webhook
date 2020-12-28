@@ -48,14 +48,13 @@
 <meta property="og:description" content="디스후크는 디스코드 웹후크를 쉽게 만들어주는 툴입니다! Dishook makes Discord webhook easy!"/>
 <meta name="theme-color" content="#7289DA">
 <meta property="og:image" content="DISCORDWEBHOOK.png"/>
-<link rel="manifest" href="manifest.json">
 </head>
   <body>
       <center>
-    <input id='pfname' placeholder="이름"><br>  
+    <input id='pfname' placeholder="이름" maxlength="32"><br>  
     <input id='pfimage' placeholder="프로필이미지(URL)"><br>
     <input id='urlweb' placeholder="웹후크 URL"><br>
-    <textarea id='cont' placeholder="메시지"></textarea><br>
+    <textarea id='cont' placeholder="메시지" maxlength="2000"></textarea><br>
     <button onclick="sendMessage();" id="send" class="big">전송!</button><br>
     <button onclick="english()" id="englishchange" class="big">English</button>
     <button onclick="korean()" id="korchange" style="display: none;" class="big">한국어</button>
@@ -65,26 +64,39 @@
 
   <script>
     function sendMessage() {
-      var request = new XMLHttpRequest();
-      request.open("POST", urlweb.value);
-
-      request.setRequestHeader('Content-type', 'application/json');
-
-      var params = {
-        username: pfname.value,
-        avatar_url: pfimage.value,
-        content: cont.value
-      }
-
-      request.send(JSON.stringify(params));
-
       Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: '전송 성공!',
-        text: '전송이 성공적으로 완료되었어요! The send has been completed successfully!',
-        showConfirmButton: false,
-        timer: 1500
+        title: '전송하시겠습니까?',
+        text: "Do you want to send this?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '전송! Send!',
+        cancelButtonText: '취소 Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var request = new XMLHttpRequest();
+          request.open("POST", urlweb.value);
+
+          request.setRequestHeader('Content-type', 'application/json');
+
+          var params = {
+            username: pfname.value,
+            avatar_url: pfimage.value,
+            content: cont.value
+          }
+
+          request.send(JSON.stringify(params));
+
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '전송 성공!',
+            text: '전송이 성공적으로 완료되었어요! The send has been completed successfully!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
       })
     }
 
