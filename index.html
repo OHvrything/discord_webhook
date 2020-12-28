@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>디스코드 웹후크</title>
+    <title id="title">디스후크! 쉬운 디스코드 웹후크!</title>
     <style>
         input {
             width: 100%;
@@ -40,8 +40,15 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  </head>
-  <body>
+<meta name="title" content="디스후크! 쉬운 디스코드 웹후크! Dishook" />
+<meta name="author" content="Dishook"/>
+<meta name="description" content="디스후크는 디스코드 웹후크를 쉽게 만들어주는 툴입니다! Dishook makes Discord webhook easy!"/>
+<meta property="og:site_name" content="디스후크 Dishook"/>
+<meta property="og:title" content="디스후크! 쉬운 디스코드 웹후크! Dishook"/>
+<meta property="og:description" content="디스후크는 디스코드 웹후크를 쉽게 만들어주는 툴입니다! Dishook makes Discord webhook easy!"/>
+<meta name="theme-color" content="#7289DA">
+</head>
+  <body onload="turnoned()">
       <center>
     <input id='pfname' placeholder="이름"><br>  
     <input id='pfimage' placeholder="프로필이미지(URL)"><br>
@@ -85,6 +92,7 @@
         document.getElementById('urlweb').placeholder='Webhook URL'
         document.getElementById('cont').placeholder='Message'
         document.getElementById("send").innerHTML = "Send!"
+      document.getElementById("title").innerHTML = "Dishook! Easy discord webhook!"
         document.getElementById("usermention").innerHTML = "User Mention"
         document.getElementById('englishchange').style='display: none;'
         document.getElementById('korchange').style='display: block;'
@@ -97,6 +105,7 @@
         document.getElementById('cont').placeholder='메시지'
         document.getElementById("send").innerHTML = "전송!"
         document.getElementById("usermention").innerHTML = "유저 멘션"
+      document.getElementById("title").innerHTML = "디스후크! 쉬운 디스코드 웹후크!"
         document.getElementById('korchange').style='display: none;'
         document.getElementById('englishchange').style='display: block;'
     }
