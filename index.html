@@ -87,7 +87,7 @@ tinymce.init({
 });
 
 </script>
-<textarea id='cont' placeholder="메시지" maxlength="2000"></textarea><br>
+<textarea id='cont' placeholder="메시지 Message" maxlength="2000"></textarea><br>
     <button onclick="sendMessage();" id="send" class="big">전송!</button><br>
     <button onclick="english()" id="englishchange" class="big">English</button>
     <button onclick="korean()" id="korchange" style="display: none;" class="big">한국어</button>
@@ -137,7 +137,6 @@ tinymce.init({
         document.getElementById('pfname').placeholder='Name'
         document.getElementById('pfimage').placeholder='Profile image(URL)'
         document.getElementById('urlweb').placeholder='Webhook URL'
-        document.getElementById('cont').placeholder='Message'
         document.getElementById("send").innerHTML = "Send!"
         document.getElementById('englishchange').style='display: none;'
         document.getElementById('korchange').style='display: block;'
@@ -148,7 +147,6 @@ tinymce.init({
         document.getElementById('pfname').placeholder='이름'
         document.getElementById('pfimage').placeholder='프로필이미지(URL)'
         document.getElementById('urlweb').placeholder='웹후크 URL'
-        document.getElementById('cont').placeholder='메시지'
         document.getElementById("send").innerHTML = "전송!"
       document.getElementById("title").innerHTML = "디스후크! 쉬운 디스코드 웹후크!"
         document.getElementById('korchange').style='display: none;'
