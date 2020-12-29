@@ -139,7 +139,7 @@
 
 <!-- Top Navigation Menu -->
 <div class="topnav">
-  <a href="/" class="active"><img src="https://github.com/OHvrything/discord_webhook/blob/main/DISCORDWEBHOOK.png?raw=true" height="24px">디스후크! 디스코드 웹후크!</a>
+  <a href="/" class="active"><img src="https://github.com/OHvrything/discord_webhook/blob/main/DISCORDWEBHOOK.png?raw=true" height="24px"><div id="websitename">디스후크! 디스코드 웹후크!</div></a>
   <div id="menu">
     <a href="/notice"><i class="fas fa-exclamation"></i>공지사항</a>
 	  <a href="https://github.com/OHvrything/discord_webhook"><i class="fab fa-github"></i></a>
@@ -164,6 +164,25 @@ function openmenu() {
     <input id='pfname' placeholder="이름" maxlength="32"><br>  
     <input id='pfimage' placeholder="프로필이미지(URL)"><br>
     <input id='urlweb' placeholder="웹후크 URL"><br>
+        <script src="https://cdn.tiny.cloud/1/679rhw2t2jywj21ilxv7muy2e0vjbczv6fjwiqlcmtn858xh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script><br>
+<script>	
+tinymce.init({	
+
+  selector: "#cont",	
+
+  plugins: "emoticons autoresize fullscreen autolink searchreplace print wordcount",	
+
+  toolbar: "emoticons fullscreen searchreplace print wordcount",	
+
+  toolbar_location: "bottom",	
+
+  menubar: false,	
+
+  statusbar: false	
+
+});	
+
+</script>
     <textarea id='cont' placeholder="메시지" maxlength="2000"></textarea><br>
     <button onclick="copyalert('@everyone')" class="easybtn">@everyone</button><button onclick="copyalert('@here')" class="easybtn">@here</button>
     <button onclick="copyalert('**내용 Contents**')" class="easybtn"><b>굵게 Bold</b></button><button onclick="copyalert('*내용 Contents*')" class="easybtn"><i>기울이기 Italics</i></button>
@@ -191,11 +210,13 @@ function openmenu() {
           request.open("POST", urlweb.value);
 
           request.setRequestHeader('Content-type', 'application/json');
+          
+          var msg = tinymce.get("cont").getContent({ format: "text" });
 
           var params = {
             username: pfname.value,
             avatar_url: pfimage.value,
-            content: cont.value
+            content: msg
           }
 
           request.send(JSON.stringify(params));
@@ -231,7 +252,7 @@ function openmenu() {
         document.getElementById('cont').placeholder='메시지'
         document.getElementById("send").innerHTML = "전송!"
         document.getElementById("title").innerHTML = "디스후크! 쉬운 디스코드 웹후크!"
-        document.getElementById("websitename").innerHTML = "Dishook! 디스코드 웹후크!"
+        document.getElementById("websitename").innerHTML = "디스후크! 디스코드 웹후크!"
         document.getElementById('korchange').style='display: none;'
         document.getElementById('englishchange').style='display: block;'
     }
