@@ -64,7 +64,7 @@
           color: white;
           text-decoration: none;
         }
-        websitename {
+        #websitename {
           font-size: 24px;
         }
         .menubar {
@@ -86,10 +86,10 @@
 <meta property="og:title" content="디스후크! 쉬운 디스코드 웹후크! Dishook"/>
 <meta property="og:description" content="디스후크는 디스코드 웹후크를 쉽게 만들어주는 툴입니다! Dishook makes Discord webhook easy!"/>
 <meta name="theme-color" content="#7289DA">
-<meta property="og:image" content="DISCORDWEBHOOK.png"/>
+<meta property="og:image" content="https://github.com/OHvrything/discord_webhook/blob/main/DISCORDWEBHOOK.png?raw=true"/>
 </head>
   <body>
-    <header><websitename>디스후크! 디스코드 웹후크!</websitename><div class="menubar"><a href="notice">공지사항</a></div></header>
+    <header><img src="https://github.com/OHvrything/discord_webhook/blob/main/DISCORDWEBHOOK.png?raw=true" height="40px"><div id="websitename">디스후크! 디스코드 웹후크!</div><div class="menubar"><a href="notice">공지사항</a></div></header>
     <div class="headermagajum"></div>
       <center>
     <input id='pfname' placeholder="이름" maxlength="32"><br>  
@@ -149,6 +149,7 @@
         document.getElementById('urlweb').placeholder='Webhook URL'
         document.getElementById('cont').placeholder='Message'
         document.getElementById("send").innerHTML = "Send!"
+        document.getElementById("websitename").innerHTML = "Dishook! Discord Webhook!"
         document.getElementById('englishchange').style='display: none;'
         document.getElementById('korchange').style='display: block;'
         document.getElementById("title").innerHTML = "Dishook! Easy discord webhook!"
@@ -160,7 +161,8 @@
         document.getElementById('urlweb').placeholder='웹후크 URL'
         document.getElementById('cont').placeholder='메시지'
         document.getElementById("send").innerHTML = "전송!"
-      document.getElementById("title").innerHTML = "디스후크! 쉬운 디스코드 웹후크!"
+        document.getElementById("title").innerHTML = "디스후크! 쉬운 디스코드 웹후크!"
+        document.getElementById("websitename").innerHTML = "Dishook! 디스코드 웹후크!"
         document.getElementById('korchange').style='display: none;'
         document.getElementById('englishchange').style='display: block;'
     }
