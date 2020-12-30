@@ -184,6 +184,7 @@ tinymce.init({
 
 </script>
     <textarea id='cont' placeholder="메시지 Message" maxlength="2000"></textarea>
+    <a href="https://forms.gle/38apQNp9kJFaJ7Gf7"><button id="review" class="big" style="display: none;">디스후크를 리뷰해주세요! Please review Dishook!</button></a>
     <button onclick="copyalert('@everyone')" class="easybtn">@everyone</button><button onclick="copyalert('@here')" class="easybtn">@here</button>
     <button onclick="copyalert('**내용 Contents**')" class="easybtn"><b>굵게 Bold</b></button><button onclick="copyalert('*내용 Contents*')" class="easybtn"><i>기울이기 Italics</i></button>
     <button onclick="copyalert('__내용 Contents__')" class="easybtn"><u>밑줄 Underline</u></button><button onclick="copyalert('~~내용 Contents~~')" class="easybtn"><s>취소선 Cancel line</s></button>
@@ -226,10 +227,10 @@ tinymce.init({
             icon: 'success',
             title: '전송 성공!',
             text: '전송이 성공적으로 완료되었어요! The send has been completed successfully!',
-	    footer: '<a href="https://forms.gle/rQvxkotQMYDKfNLp8">디스후크를 리뷰해주세요! Please review Dishook!</a>'
             showConfirmButton: true,
             timer: 3000
           })
+	  document.getElementById('review').style='display: block;'
         }
       })
     }
