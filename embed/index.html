@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이름</title>
+  </head>
+  <body>
+<input id="whlink" placeholder="웹후크 URL">
 
+<input id="embedtitle" placeholder="임베드 제목">
+<input id="embeddesc" placeholder="임베드 설명">
+
+<input id="color" placeholder="임베드 컬러", type="color">
+    <button onclick="sendMessage()">Send</button>
+  </body>
+
+  <script>
+    function sendMessage() {
+      var request = new XMLHttpRequest();
+      request.open("POST", whlink.value);
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var myEmbed = {
+        author: {
+          name: "디스후크 임베드 베타"
+        },
+        title: embedtitle.value,
+        description: embeddesc.value,
+        color: hexToDecimal(color.value)
+      }
+
+      var params = {
+        username: "디스후크 임베드 베타",
+        embeds: [ myEmbed ]
+      }
+
+      request.send(JSON.stringify(params));
+
+      function hexToDecimal(hex) {
+        return parseInt(hex.replace("#",""), 16)
+      }
+    }
+  </script>
+</html>
