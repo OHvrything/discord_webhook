@@ -110,6 +110,26 @@ tinymce.init({
 
 </script>
 <textarea id="embeddesc" placeholder="임베드 설명"></textarea>
+<script>	
+tinymce.init({	
+
+  selector: "#cont",	
+
+  plugins: "emoticons autoresize fullscreen autolink searchreplace print wordcount",	
+
+  toolbar: "emoticons fullscreen searchreplace print wordcount",	
+
+  toolbar_location: "bottom",	
+
+  menubar: false,	
+
+  statusbar: false	
+
+});	
+
+</script>
+<h1 class="texth1">메시지 설정(메시지 같이보내기)(선택)</h1>
+    <textarea id='cont' placeholder="메시지 Message" maxlength="2000"></textarea>
 <h1 class="texth1">임베드 색깔 선택</h1>
 <input id="color" placeholder="임베드 컬러", type="color">
     <button onclick="sendMessage()" class="big">Send</button>
@@ -131,10 +151,13 @@ tinymce.init({
         description: embdesc,
         color: hexToDecimal(color.value)
       }
-
+      
+      var msg = tinymce.get("cont").getContent({ format: "text" });
+      
       var params = {
         username: username.value,
         embeds: [ myEmbed ]
+        content: msg
       }
 
       request.send(JSON.stringify(params));
