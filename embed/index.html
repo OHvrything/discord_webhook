@@ -90,7 +90,26 @@
 <h1 class="texth1">임베드 설정</h1>
 <input id="authorname" placeholder="임베드 Author 이름">
 <input id="embedtitle" placeholder="임베드 제목">
-<input id="embeddesc" placeholder="임베드 설명">
+<script src="https://cdn.tiny.cloud/1/679rhw2t2jywj21ilxv7muy2e0vjbczv6fjwiqlcmtn858xh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script><br>
+<script>	
+tinymce.init({	
+
+  selector: "#embeddesc",	
+
+  plugins: "emoticons autoresize fullscreen autolink searchreplace print wordcount",	
+
+  toolbar: "emoticons fullscreen searchreplace print wordcount",	
+
+  toolbar_location: "bottom",	
+
+  menubar: false,	
+
+  statusbar: false	
+
+});	
+
+</script>
+<textarea id="embeddesc" placeholder="임베드 설명"></textarea>
 <h1 class="texth1">임베드 색깔 선택</h1>
 <input id="color" placeholder="임베드 컬러", type="color">
     <button onclick="sendMessage()" class="big">Send</button>
@@ -102,12 +121,14 @@
       request.open("POST", whlink.value);
       request.setRequestHeader('Content-type', 'application/json');
 
+      var embdesc = tinymce.get("embeddesc").getContent({ format: "text" });
+
       var myEmbed = {
         author: {
           name: authorname.value
         },
         title: embedtitle.value,
-        description: embeddesc.value,
+        description: embdesc,
         color: hexToDecimal(color.value)
       }
 
