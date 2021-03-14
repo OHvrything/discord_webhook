@@ -85,6 +85,8 @@
   </head>
   <body>
 <input id="whlink" placeholder="웹후크 URL">
+<input id="username" placeholder="임베드 전송 유저 이름">
+<input id="authorname" placeholder="임베드 Author 이름">
 <input id="embedtitle" placeholder="임베드 제목">
 <input id="embeddesc" placeholder="임베드 설명"><h1 class="texteveve">임베드 색깔 선택</h1><input id="color" placeholder="임베드 컬러", type="color">
     <button onclick="sendMessage()">Send</button>
@@ -98,7 +100,7 @@
 
       var myEmbed = {
         author: {
-          name: "디스후크 임베드 베타"
+          name: authorname.value
         },
         title: embedtitle.value,
         description: embeddesc.value,
@@ -106,7 +108,7 @@
       }
 
       var params = {
-        username: "디스후크 임베드 베타",
+        username: username.value,
         embeds: [ myEmbed ]
       }
 
