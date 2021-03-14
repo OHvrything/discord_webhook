@@ -85,8 +85,9 @@
   </head>
   <body>
 <h1 class="texth1">웹후크 설정</h1>
-<input id="whlink" placeholder="웹후크 URL">
+<input id="whlink" placeholder="웹후크 URL" type="url">
 <input id="username" placeholder="임베드 전송 유저 이름">
+<input id='pfimage' placeholder="프로필이미지(URL)" type="url">
 <h1 class="texth1">임베드 설정</h1>
 <input id="authorname" placeholder="임베드 Author 이름">
 <input id="embedtitle" placeholder="임베드 제목">
@@ -157,6 +158,7 @@ tinymce.init({
       var params = {
         username: username.value,
         embeds: [ myEmbed ],
+        avatar_url: pfimage.value,
         content: msg
       }
 
