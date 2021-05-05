@@ -1,0 +1,295 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="https://amp.dev/ko/documentation/guides-and-tutorials/start/create/basic_markup/">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "logo.jpg"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style>
+        input {
+            width: 100%;
+            height: 100px;
+            font-size: 24px;
+            background: #23272A;
+            border: none;
+            color: white;
+        }
+        .texth1 {
+            color: white;
+        }
+        textarea {
+            width: 100%;
+            height: 250px;
+            font-size: 24px;
+            background: lightgreen;
+            border: none;
+        }
+        .big {
+            width: 100%;
+            height: 50px;
+            font-size: 24px;
+            background: lightseagreen;
+            border: none;
+            transition-duration: 100ms;
+        }
+        .big:hover {
+          background: lightblue;
+        }
+        .big:active {
+          background: blue;
+        }
+        body, html {
+            background: #2C2F33;
+	    font-family: 'Jua', sans-serif;
+        }
+        .easybtn {
+          width: 50%;
+          height: 50px;
+          font-size: 15px;
+          background: lightskyblue;
+          border: none;
+          transition-duration: 100ms;
+        }
+        .easybtn:hover {
+          background: blueviolet;
+        }
+        .easybtn:active {
+          background: violet;
+        }
+        .headermagajum {
+          width: 100%;
+          height: 40px;
+          background: green;
+        }
+        header {
+          width: 100%;
+          height: 40px;
+          background: green;
+          position: fixed;
+          top: 0%;
+          color: white;
+          text-decoration: none;
+        }
+        #websitename {
+          font-size: 24px;
+	  font-family: 'Gugi', cursive;
+        }
+	a {
+	  text-decoration: none;
+	}
+	input, textarea, button {
+	  font-family: 'Jua', sans-serif;
+	}
+    </style>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<meta name="title" content="디스후크! 쉬운 디스코드 웹후크! Dishook" />
+<meta name="author" content="Dishook"/>
+<meta name="description" content="디스후크는 디스코드 웹후크를 쉽게 만들어주는 툴입니다! Dishook makes Discord webhook easy!"/>
+<meta property="og:site_name" content="디스후크 Dishook"/>
+<meta property="og:title" content="디스후크! 쉬운 디스코드 웹후크! Dishook"/>
+<meta property="og:description" content="디스후크는 디스코드 웹후크를 쉽게 만들어주는 툴입니다! Dishook makes Discord webhook easy!"/>
+<meta name="theme-color" content="#7289DA">
+<meta property="og:image" content="https://github.com/OHvrything/discord_webhook/blob/main/DISCORDWEBHOOK.png?raw=true"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  </head>
+  <body>
+    <style>
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  width: 100%;
+}
+
+.topnav #menu {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 24px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a href="/" class="active"><img src="https://github.com/OHvrything/discord_webhook/blob/main/DISCORDWEBHOOK.png?raw=true" height="24px"><div id="websitename">디스후크! 디스코드 웹후크!</div></a>
+  <div id="menu">
+    <a href="/notice"><i class="fas fa-exclamation"></i>공지사항</a>
+	  <a href="https://github.com/OHvrything/discord_webhook" target="_blank"><i class="fab fa-github"></i></a>
+<a href="/about"><i class="fas fa-address-card"></i>About Dishook.</a>
+<a href="/embed"><i class="fas fa-window-maximize"></i>Embed</a>
+</div>
+  <a href="javascript:void(0);" class="icon" onclick="openmenu()">
+    <i class="fas fa-bars"></i>
+  </a>
+</div>
+
+<script>
+function openmenu() {
+  var x = document.getElementById("menu");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+      <center>
+<h1 class="texth1">웹후크 설정</h1>
+    <input id='pfname' placeholder="이름" maxlength="32" autocomplete="on"><br>  
+    <input id='pfimage' placeholder="프로필이미지(URL)" autocomplete="on" type="url"><br>
+    <input id='urlweb' placeholder="웹후크 URL" type="url">
+        <script src="https://cdn.tiny.cloud/1/679rhw2t2jywj21ilxv7muy2e0vjbczv6fjwiqlcmtn858xh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script><br>
+<script>	
+tinymce.init({	
+
+  selector: "#cont",	
+
+  plugins: "emoticons autoresize fullscreen autolink searchreplace print wordcount",	
+
+  toolbar: "emoticons fullscreen searchreplace print wordcount",	
+
+  toolbar_location: "bottom",	
+
+  menubar: false,	
+
+  statusbar: false,
+
+  skin: 'oxide-dark',
+  
+  content_css: 'dark'
+
+});	
+
+</script>
+<h1 class="texth1">메시지 설정</h1>
+    <textarea id='cont' placeholder="메시지 Message" maxlength="2000"></textarea>
+    <a href="https://forms.gle/38apQNp9kJFaJ7Gf7"><button id="review" class="big" style="display: none;">디스후크를 리뷰해주세요! Please review Dishook!</button></a>
+    <button onclick="copyalert('@everyone')" class="easybtn">@everyone</button><button onclick="copyalert('@here')" class="easybtn">@here</button>
+    <button onclick="copyalert('**내용 Contents**')" class="easybtn"><b>굵게 Bold</b></button><button onclick="copyalert('*내용 Contents*')" class="easybtn"><i>기울이기 Italics</i></button>
+    <button onclick="copyalert('__내용 Contents__')" class="easybtn"><u>밑줄 Underline</u></button><button onclick="copyalert('~~내용 Contents~~')" class="easybtn"><s>취소선 Cancel line</s></button>
+    <button onclick="sendMessage();" id="send" class="big">전송!</button><br>
+    <button onclick="english()" id="englishchange" class="big">English</button>
+    <button onclick="korean()" id="korchange" style="display: none;" class="big">한국어</button>
+    <a href="/embed"><button style="display: none;" class="big">임베드 BETA</button></a>
+  </center>
+  </body>
+
+  <script>
+    function sendMessage() {
+      Swal.fire({
+        title: '전송하시겠습니까?',
+        text: "Do you want to send this?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '전송! Send!',
+        cancelButtonText: '취소 Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var request = new XMLHttpRequest();
+          request.open("POST", urlweb.value);
+
+          request.setRequestHeader('Content-type', 'application/json');
+          
+          var msg = tinymce.get("cont").getContent({ format: "text" });
+
+          var params = {
+            username: pfname.value,
+            avatar_url: pfimage.value,
+            content: msg
+          }
+
+          request.send(JSON.stringify(params));
+
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '전송 성공!',
+            text: '전송이 성공적으로 완료되었어요! The send has been completed successfully!',
+            showConfirmButton: true,
+            timer: 1000
+          })
+	  document.getElementById('review').style='display: block;'
+        }
+      })
+    }
+
+    function english() {
+        document.getElementById('pfname').placeholder='Name'
+        document.getElementById('pfimage').placeholder='Profile image(URL)'
+        document.getElementById('urlweb').placeholder='Webhook URL'
+        document.getElementById("send").innerHTML = "Send!"
+        document.getElementById("websitename").innerHTML = "Dishook! Discord Webhook!"
+        document.getElementById('englishchange').style='display: none;'
+        document.getElementById('korchange').style='display: block;'
+        document.getElementById("title").innerHTML = "Dishook! Easy discord webhook!"
+    }
+
+    function korean() {
+        document.getElementById('pfname').placeholder='이름'
+        document.getElementById('pfimage').placeholder='프로필이미지(URL)'
+        document.getElementById('urlweb').placeholder='웹후크 URL'
+        document.getElementById("send").innerHTML = "전송!"
+        document.getElementById("title").innerHTML = "디스후크! 쉬운 디스코드 웹후크!"
+        document.getElementById("websitename").innerHTML = "디스후크! 디스코드 웹후크!"
+        document.getElementById('korchange').style='display: none;'
+        document.getElementById('englishchange').style='display: block;'
+    }
+
+    function copyalert(texteveve) {
+      prompt('아래 내용을 수정, 복사후 붙여넣으세요', texteveve);
+    } 
+  </script>
+  <script>
+function menuopen() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+</html>
